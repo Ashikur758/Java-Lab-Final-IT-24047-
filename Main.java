@@ -1,15 +1,25 @@
-package mypage; 
+package bookpackage;
+
 public class Main {
     public static void main(String[] args) {
-        Student s = new Student();
+        Book[] books = new Book[5];
+        books[0] = new Book(1, "Java Programming", 600);
+        books[1] = new Book(2, "C++ Programming", 450);
+        books[2] = new Book(3, "Python Programming", 700);
+        books[3] = new Book(4, "Data Structures", 550);
+        books[4] = new Book(5, "Operating Systems", 400);
 
-        s.setId(101);
-        s.setName("Ashikur");
-        s.setCgpa(3.5);   
-        s.setCgpa(5.0);   
+        double sum = 0;
 
-        System.out.println("ID: " + s.getId());
-        System.out.println("Name: " + s.getName());
-        System.out.println("CGPA: " + s.getCgpa());
+        System.out.println("Books with price greater than 500:");
+        for (Book b : books) {
+            if (b.price > 500) {
+                System.out.println("BookID: " + b.bookId + ", Title: " + b.title + ", Price: " + b.price);
+            }
+            sum += b.price;
+        }
+
+        double average = sum / books.length;
+        System.out.println("Average Book Price: " + average);
     }
 }
